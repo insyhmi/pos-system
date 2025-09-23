@@ -1,0 +1,37 @@
+{
+    "appinfo":{
+        "app" : "Lanx's Cashier App",
+        "version": "1.0",
+        "copyright" : "lnxhm1",
+        "serial_id" : "A1"
+    },
+
+    "company_name" : "Company Name",
+    "company_address" : "Sample Address 1\nSample Address 2\nSample Address 3",
+    
+    "app_title" : "Cashier ",
+    "login_instance_title" : "Login Instance",
+    "login_instance_icon" : "icon.png",
+    "login_instance_background" : "",
+    
+    "currency_code" : "RM",
+
+    "use_root_access" : true,
+    
+    "use_unix_transaction_id" : true,
+    
+    "db_host" : "localhost",
+    "db_username" : "root",
+    "db_password" : "root", 
+    "db_database" : "testing",
+    
+    "primary_color" : "31, 224, 99",
+    "primary_light_color" : "",
+    "ean13_input_color" : "47, 237, 171",
+    "secondary_color" : "24, 180, 79",
+    "light" : "",
+    "dark" : "",
+    "shadow" : "",
+    "ean13_add_color" : "",
+    "ean13_remove_color" : ""
+}

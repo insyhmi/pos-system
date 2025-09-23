@@ -1,0 +1,441 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidenav">
+                <div class="logo">
+                    <h1>Your App Admin</h1>
+                </div>
+                <div class="sidenav-menu">
+                    <a href="/">
+                        <div class="nav-item">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Dashboard</span>
+                        </div>
+                    </a>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Sales and Transactions
+                    </div>
+                    <a href="{{url_for('transaction')}}">
+                        <div class="nav-item">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <span>Transactions</span>
+                        </div>
+                    </a>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <span>Refund Requests</span>
+                    </div>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Inventory
+                    </div>
+                    <a href="{{ url_for('product_management') }}">
+                        <div class="nav-item">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            <span>Product Management</span>
+                        </div>
+                    </a>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-cart-flatbed"></i>
+                        <span>Stock In / Out Logs</span>
+                    </div>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Staff
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Staff</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-clipboard-user"></i>
+                        <span>Shift and Attendance</span>
+                    </div>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Reports
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                        <span>Sales Reports</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <span>Inventory Reports</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>EOD Reports</span>
+                    </div>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Admin and Configs
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-tags"></i>
+                        <span>Tax and Discounts</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-user-pen"></i>
+                        <span>Manage Staff</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Logs</span>
+                    </div>
+                    <div class="nav-item-header"> <!-- Section separator -->
+                        Log Out
+                    </div>
+                    <div class="nav-item">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Log Out</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+    </body>
+    <style>
+        :root{
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --primary: #1c1f31;
+            --primary-light: #6d6d6d;
+            --gray: #262626;
+            --accent: rgb(31, 224, 99);
+            --accent-light: #4CAF50;   /* Light green (similar brightness to #4270f4) */
+            --accent-dark:  #0d8e13;   /* Deeper green (similar tone to #247bee) */
+            --background:   #edf9f0d7; 
+            --transition: 0.3s ease-out;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            }
+        
+        a:link, a:visited, a:hover, a:active {
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            }
+
+        .sidenav {
+            position: sticky;
+            top: 0;
+            width: 260px;
+            background-color: var(--gray) ;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            padding: 24px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 10px
+            }
+        
+        .logo h1{
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px
+        }
+
+        .nav-item {
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border-left: 4px solid transparent; /* invisible until hover/active */
+            margin: 4px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::after {   /* Bottom shimmer line effect */
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: var(--transition);
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item:hover, .nav-item.active { /* Hover & Active behavior */
+            background-color: rgba(255, 255, 255, 0.07);
+            border-left-color: var(--accent);
+        }
+
+            /* Active state specific */
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(67, 97, 238, 0.2), transparent);
+            font-weight: 500;
+        }
+        
+        .nav-item-header{
+            font-size:13px;
+            color: #c8c8c8;
+            margin: 4px 0px 4px 25px;
+            padding: 10px 0px 5px;
+        }
+
+        .nav-item i{
+            width: 24px;
+            margin-right: 12px;
+            font-size: 18px;
+            text-align: center;
+            transition: var(--transition)
+        }
+
+        .nav-item span{
+            color: white;
+            font-size: 17px;
+            transition: var(--transition);
+        }
+
+        .nav-item:hover i, .nav-item:hover span{
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            grid-column:2;
+            padding: 20px;
+            font-size: 24px;
+            grid-column: 2;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            z-index: 100;
+            position: sticky;
+            top: 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-buttons{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 10px;
+        }
+
+        .main {
+            flex-grow: 1;
+            background-color: #f9f9f9;
+            }
+
+        .main-content{
+            padding: 15px 30px;
+
+        }
+
+        .title{
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            padding: 10px 0px;
+        }
+
+        .stat-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease;
+            color: rgb(48, 48, 48);
+        }
+
+        .stat-card, .stat-card-double {
+            flex: 1 1 260px; 
+            max-width: 100%;
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.041);
+        }
+        
+        .stat-card {
+            border-left: 4px solid var(--accent-dark);
+        }
+
+        .stat-card-double {
+            flex: 2 1 calc(520px + 25px); /* twice the base 260px width + one gap */
+        }
+        
+        .stat-card:hover{
+            border-left: 4px solid var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card-icon{
+            width: 60px;
+            height: 60px;
+            display: flex;
+            font-size: 25px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent-light);
+            background-color: var(--background);
+        }
+
+        .stat-card-header{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .stat-card-value{
+            margin-top: 5px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stat-card-label{
+            font-size: 16px;
+            margin-top: 10px;
+            color: rgb(97, 97, 97);
+        }
+
+        .table-attendance-status, .table-transaction-record{
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            font-weight: normal;
+            padding: 8px 2px;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .name-column{
+            width: auto;
+        }
+        
+        .name-cell{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .staff-info{
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .staff-name{
+            font-size:20px;
+        }
+
+        .staff-meta{
+            font-size:12px;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+
+        .status-column {
+            width: 120px; /* Fixed width for status */
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .staff-pic{
+            width: 64px;
+            height: 64px;
+            background-color: rgb(48, 48, 48);
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .ok{
+            color: rgb(31, 98, 224);
+        }
+
+        .orange{
+            color: rgb(82, 0, 197);
+        }
+
+        .warning{
+            color: rgb(228, 178, 11);
+        }
+
+        .red{
+            color: rgb(204, 9, 81);
+        }
+
+        .table-transaction-record th{
+            font-size: 20px;    
+        }
+        @media (max-width: 1200px) {
+            .stat-card {
+                flex: 1 1 calc(50% - 10px); /* half width minus half the gap */
+            }
+
+            .stat-card-double {
+                flex: 2 1 calc(100% - 10px); /* span full row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stat-card {
+                flex: 1 1 100%;
+            }
+
+            .stat-card-double {
+                flex: 1 1 100%; /* stack like others */
+            }
+        }
+    </style>
+</html>

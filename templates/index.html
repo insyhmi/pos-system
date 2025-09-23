@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+                <div class="header">
+                    <div class="header-title">
+                        Dashboard
+                    </div>
+                    <div class="header-buttons">
+                        <div class="header-button-user">
+                            button
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="title">Today's Statistics</div>
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-card-value">
+                                RM 4,019.01
+                            </div>
+                            <div class="stat-card-label">
+                                Revenue
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-money-bill-trend-up"></i>
+                            </div>
+                            <div class="stat-card-value">
+                                RM 1,571.90
+                            </div>
+                            <div class="stat-card-label">
+                                Profit
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <div class="stat-card-value">
+                                712
+                            </div>
+                            <div class="stat-card-label">
+                                Customers served
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="stat-cards">
+                        <div class="stat-card-double">
+                            <div class="stat-card-header">
+                                stat card double
+                            </div>
+                            <div class="stat-card-content">
+                                5
+                            </div>
+                        </div>
+                        <div class="stat-card-double">
+                            <div class="stat-card-value" style="font-size: 20px;">
+                                Staff table
+                            </div>
+                            <div class="stat-card-content">
+                                <table class="table-attendance-status">
+                                    <tr>
+                                        <th class="name-column">Name</th>
+                                        <th class="status-column">Status</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="name-column">
+                                            <div class="name-cell">
+                                                <div class="staff-pic"></div>
+                                                <div class="staff-info">
+                                                    <div class="staff-name">Mohd. Lanx</div>
+                                                    <div class="staff-meta">13:05:18</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="status-column">
+                                            <span class="staff-status ok"><i class="fa-solid fa-check"></i> Present</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name-column">
+                                            <div class="name-cell">
+                                                <div class="staff-pic"></div>
+                                                <div class="staff-info">
+                                                    <div class="staff-name">Farisha</div>
+                                                    <div class="staff-meta">08:30:24</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="status-column">
+                                            <span class="staff-status warning"><i class="fa-solid fa-mug-saucer"></i></i> Break</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name-column">
+                                            <div class="name-cell">
+                                                <div class="staff-pic"></div>
+                                                <div class="staff-info">
+                                                    <div class="staff-name">Mark P</div>
+                                                    <div class="staff-meta">00:01:13</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="status-column">
+                                            <span class="staff-status orange"><i class="fa-solid fa-person-walking"></i> Clock out</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="name-column">
+                                            <div class="name-cell">
+                                                <div class="staff-pic"></div>
+                                                <div class="staff-info">
+                                                    <div class="staff-name">Chin Peng</div>
+                                                    <div class="staff-meta">09:55:14</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="status-column">
+                                            <span class="staff-status red"><i class="fa-solid fa-circle-xmark"></i> Absent</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+                <div class="header">
+                    <div class="header-title">
+                        Transactions
+                    </div>
+                    <div class="header-buttons">
+                        <div class="header-button-user">
+                            button
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="title">Transaction history</div>
+                    <div class="stat-card-double">
+                        <div class="stat-card-value" style="font-size: 20px;">
+                            {{ date }}
+                        </div>
+                        <div class="stat-card-content">
+                            <table class="table-transaction-record">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>ID</th>
+                                    <th>Time</th>
+                                    <th>Amount</th>
+                                    <th>Cashier</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td>13:55:04</td>
+                                    <td>RM 18.90</td>
+                                    <td>Mohd</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
